@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "482428588951",
+    "project_id": "friendlyeats-b6f5e",
+    "storage_bucket": "friendlyeats-b6f5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482428588951:android:2ec61e9ec7c102f3c4ead2",
+        "android_client_info": {
+          "package_name": "com.oriented.potato_foods"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482428588951-5v8m68fi1uh2ll0t6ptgvcid0qhjrm8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBg_r-fP7zo7TefywNoatvLGZvK0HVx-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482428588951-5v8m68fi1uh2ll0t6ptgvcid0qhjrm8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

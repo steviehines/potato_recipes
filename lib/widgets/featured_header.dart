@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:potato_foods/components/theme.dart';
+import 'package:potato_foods/components/constants.dart';
 
 class FeatureHeading extends StatelessWidget {
   const FeatureHeading({
@@ -27,7 +27,7 @@ class FeatureHeading extends StatelessWidget {
               textStyle: const TextStyle(
                 fontSize: 17,
                 letterSpacing: 0.27,
-                color: darkText,
+                color: ConstAnts.darkText,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -39,7 +39,7 @@ class FeatureHeading extends StatelessWidget {
               textStyle: TextStyle(
                 fontSize: 11,
                 letterSpacing: 0.2,
-                color: darkText.withOpacity(.69),
+                color: ConstAnts.darkText.withOpacity(.69),
                 fontWeight: FontWeight.w400,
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:potato_foods/components/theme.dart';
+import 'package:potato_foods/components/constants.dart';
 
 class InfoCard extends StatelessWidget {
   const InfoCard({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class InfoCard extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  color: medicalGreen.withOpacity(.1),
+                  color: ConstAnts.medicalGreen.withOpacity(.1),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(9),
                   ),
@@ -47,7 +47,7 @@ class InfoCard extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                               fontSize: 13,
                               letterSpacing: 0.2,
-                              color: darkText.withOpacity(.8),
+                              color: ConstAnts.darkText.withOpacity(.8),
                             ),
                           ),
                           textAlign: TextAlign.left,
@@ -63,7 +63,7 @@ class InfoCard extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                                 fontSize: 13,
                                 letterSpacing: 0.2,
-                                color: medicalGreen.withOpacity(.8),
+                                color: ConstAnts.medicalGreen.withOpacity(.8),
                               ),
                             ),
                             recognizer: TapGestureRecognizer()..onTap = () {},

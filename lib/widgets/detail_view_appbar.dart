@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:potato_foods/components/theme.dart';
+import 'package:get/get.dart';
+import 'package:potato_foods/components/constants.dart';
+import 'package:potato_foods/components/funcs.dart';
 
 class DetailScreenAppBar extends StatelessWidget {
   const DetailScreenAppBar({Key? key}) : super(key: key);
@@ -9,7 +11,7 @@ class DetailScreenAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: nearlyWhite,
+        color: ConstAnts.nearlyWhite,
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.grey.withOpacity(0.2),
@@ -36,9 +38,9 @@ class DetailScreenAppBar extends StatelessWidget {
                   borderRadius: const BorderRadius.all(
                     Radius.circular(32.0),
                   ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () => Get.toNamed(
+                      // ignore: todo
+                      '/home'), //TODO: Route details screen pop to home button
                   child: const Padding(
                     padding: EdgeInsets.all(11.0),
                     child: Icon(
@@ -66,7 +68,7 @@ class DetailScreenAppBar extends StatelessWidget {
                       borderRadius: const BorderRadius.all(
                         Radius.circular(32.0),
                       ),
-                      onTap: () {},
+                      onTap: () => addDB(),
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(Icons.share),

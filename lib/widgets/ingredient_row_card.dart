@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:potato_foods/components/theme.dart';
+import 'package:potato_foods/components/constants.dart';
 
 class IngredCard extends StatelessWidget {
   const IngredCard({
@@ -25,7 +25,7 @@ class IngredCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 8, bottom: 8),
           child: Container(
             decoration: BoxDecoration(
-              color: medicalGreen.withOpacity(.05),
+              color: ConstAnts.medicalGreen.withOpacity(.05),
               borderRadius: const BorderRadius.all(
                 Radius.circular(9),
               ),
@@ -53,7 +53,7 @@ class IngredCard extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             fontSize: 14,
                             letterSpacing: 0.1,
-                            color: darkText.withOpacity(.8),
+                            color: ConstAnts.darkText.withOpacity(.8),
                           ),
                         ),
                         textAlign: TextAlign.left,
@@ -67,7 +67,7 @@ class IngredCard extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                         letterSpacing: 0.2,
-                        color: darkText.withOpacity(.8),
+                        color: ConstAnts.darkText.withOpacity(.8),
                       ),
                     ),
                     textAlign: TextAlign.left,
@@ -78,53 +78,6 @@ class IngredCard extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class IngredList extends StatelessWidget {
-  const IngredList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        IngredCard(
-          name: 'Permesan Cheese',
-          ingredient: '🧀',
-          measure: '300 g',
-        ),
-        IngredCard(
-          name: 'Eggs',
-          ingredient: '🥚',
-          measure: '2 pcs',
-        ),
-        IngredCard(
-          name: 'Fresh Shrimp',
-          ingredient: '🍤',
-          measure: '1/2 Kg',
-        ),
-        IngredCard(
-          name: 'Potatoes',
-          ingredient: '🥔',
-          measure: '1/2 Kg',
-        ),
-        IngredCard(
-          name: 'Chilli Pepper',
-          ingredient: '🌶️',
-          measure: '4 Tbsp',
-        ),
-        IngredCard(
-          name: 'Tomato Ketchup',
-          ingredient: '🍅',
-          measure: '6 Tbsp',
-        ),
-        IngredCard(
-          name: 'Onion',
-          ingredient: '🍈',
-          measure: '2 pcs',
-        ),
-      ],
     );
   }
 }

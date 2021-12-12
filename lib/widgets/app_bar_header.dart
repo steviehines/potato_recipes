@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:potato_foods/components/theme.dart';
+import 'package:potato_foods/components/constants.dart';
 
 class AppBarHeadR extends StatelessWidget {
-  const AppBarHeadR({Key? key}) : super(key: key);
+  const AppBarHeadR({
+    Key? key,
+    this.user,
+    this.profilePic,
+  }) : super(key: key);
+  final String? user, profilePic;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +27,13 @@ class AppBarHeadR extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hello Luis,',
+                  user!,
                   textAlign: TextAlign.left,
                   style: GoogleFonts.varelaRound(
                     textStyle: TextStyle(
                       fontSize: 22,
                       letterSpacing: 0.27,
-                      color: medicalGreen.withOpacity(.9),
+                      color: ConstAnts.medicalGreen.withOpacity(.9),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -43,7 +48,7 @@ class AppBarHeadR extends StatelessWidget {
                     textStyle: const TextStyle(
                       fontSize: 14,
                       letterSpacing: 0.2,
-                      color: darkText,
+                      color: ConstAnts.darkText,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -54,7 +59,7 @@ class AppBarHeadR extends StatelessWidget {
           SizedBox(
             width: 44,
             height: 44,
-            child: Image.asset('assets/images/dev2.png'),
+            child: Image.asset(profilePic!),
           ),
         ],
       ),

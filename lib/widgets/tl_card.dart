@@ -1,83 +1,158 @@
 import 'package:flutter/material.dart';
-import 'package:potato_foods/components/theme.dart';
+import 'package:potato_foods/components/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TLCard extends StatelessWidget {
-  const TLCard({Key? key}) : super(key: key);
+  const TLCard({
+    Key? key,
+    required this.screenSize,
+    this.name,
+    this.description,
+    required this.borderRadi,
+    this.image,
+  }) : super(key: key);
+
+  final String? name, description, image;
+  final double borderRadi;
+  final Size screenSize;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Colors.transparent,
-      onTap: () {},
-      child: SizedBox(
-        // height: 330,
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: ConstAnts.nearlyWhite.withOpacity(0.6),
+            offset: const Offset(4, 4),
+            blurRadius: 7,
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        clipBehavior: Clip.antiAlias,
+        borderRadius: BorderRadius.circular(borderRadi),
         child: Stack(
-          alignment: const Alignment(.9, 0),
-          children: <Widget>[
-            AspectRatio(
-              aspectRatio: .7,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(9)),
-                child: Image.asset(
-                  'assets/images/Mint Mashed Potatoes.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 24, right: 16, left: 16),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: kDark.withOpacity(.3),
-                  borderRadius: const BorderRadius.all(Radius.circular(11.0)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: kDark.withOpacity(0.2),
-                        offset: const Offset(0.0, 0.0),
-                        blurRadius: 6.0),
-                  ],
-                ),
-                child: AspectRatio(
-                    aspectRatio: 2,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 16, left: 9, right: 8),
-                              child: Text(
-                                'Stir Fri',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  letterSpacing: 0.27,
-                                  color: kDark.withOpacity(.8),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Padding(
-                          padding:
-                              EdgeInsets.only(top: 16, left: 16, right: 16),
-                          child: Text(
-                            '40 min, 2 Serve',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w200,
-                              fontSize: 12,
-                              letterSpacing: 0.27,
-                              color: kDark,
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
-            ),
+          fit: StackFit.expand,
+          children: [
+            _buildEventImage(context),
+            _buildGradient(),
+            _buildBottom(borderRadi),
+            _buildEventDescription(),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEventImage(BuildContext context) {
+    return Image.asset(
+      image!,
+      fit: BoxFit.cover,
+    );
+    // FancyShimmerImage(
+    //   imageUrl: image!,
+    //   shimmerHighlightColor: nearlyWhite.withOpacity(.5),
+    //   shimmerBaseColor: Colors.white,
+    //   shimmerBackColor: Colors.white,
+    //   shimmerDuration: Duration(milliseconds: 2100),
+    //   errorWidget: Container(
+    //     color: Colors.white,
+    //     child: Center(
+    //       child: Image.asset(
+    //         'assets/images/dev2.png',
+    //         fit: BoxFit.cover,
+    //         width: 33,
+    //         height: 33,
+    //       ),
+    //     ),
+    //   ),
+    // );
+  }
+
+  Widget _buildGradient() {
+    return Positioned.fill(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.transparent,
+              ConstAnts.darkText.withOpacity(0.5),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: const [0.6, 0.95],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEventDescription() {
+    return Positioned(
+      left: 15,
+      bottom: 21,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            name!,
+            style: GoogleFonts.varelaRound(
+              textStyle: const TextStyle(
+                fontSize: 23,
+                color: ConstAnts.nearlyWhite,
+                fontWeight: FontWeight.bold,
+                shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(1.0, 1.0),
+                    blurRadius: 0.9,
+                    color: ConstAnts.darkText,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 21,
+          ),
+          Text(
+            description!,
+            style: GoogleFonts.varelaRound(
+              textStyle: const TextStyle(
+                fontSize: 16,
+                color: ConstAnts.nearlyWhite,
+                fontWeight: FontWeight.bold,
+                shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(1.0, 1.0),
+                    blurRadius: 0.9,
+                    color: ConstAnts.darkText,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottom(double borderRadius) {
+    return Positioned(
+      left: 1,
+      right: 1,
+      bottom: 1,
+      child: Card(
+        color: ConstAnts.darkText.withOpacity(.2),
+        elevation: 5,
+        shadowColor: ConstAnts.darkText,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(borderRadius),
+          ),
+        ),
+        child: const SizedBox(
+          height: 99,
         ),
       ),
     );

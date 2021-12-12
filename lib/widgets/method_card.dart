@@ -1,26 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:potato_foods/components/theme.dart';
-
-class MethodList extends StatelessWidget {
-  const MethodList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        MethodCard(),
-        MethodCard(),
-        MethodCard(),
-        MethodCard(),
-        MethodCard(),
-        MethodCard(),
-        MethodCard(),
-      ],
-    );
-  }
-}
+import 'package:potato_foods/components/constants.dart';
 
 class MethodCard extends StatelessWidget {
   const MethodCard({Key? key}) : super(key: key);
@@ -30,7 +11,7 @@ class MethodCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 17),
       child: Card(
-        color: medicalGreen.withOpacity(.06),
+        color: ConstAnts.medicalGreen.withOpacity(.06),
         elevation: 55,
         shadowColor: Colors.transparent,
         child: Padding(
@@ -45,7 +26,7 @@ class MethodCard extends StatelessWidget {
               Icon(
                 FontAwesomeIcons.solidCircle,
                 size: 11,
-                color: darkText.withOpacity(.8),
+                color: ConstAnts.darkText.withOpacity(.8),
               ),
               Text(
                 'Set a small bowl upside-down inside a large \nbowl. Stand the corn cobs on the small bowl \nand cut off the kernels. Remove \nthe small bowl.',
@@ -54,7 +35,7 @@ class MethodCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
                     letterSpacing: 0.1,
-                    color: darkText.withOpacity(.89),
+                    color: ConstAnts.darkText.withOpacity(.89),
                   ),
                 ),
               ),

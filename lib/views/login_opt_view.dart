@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:potato_foods/components/theme.dart';
-import 'package:potato_foods/widgets/a_button.dart';
+import 'package:potato_foods/components/constants.dart';
+import 'package:potato_foods/widgets/matter_button.dart';
+import 'package:potato_foods/widgets/outlined_buton.dart';
 
 class LoginOptionView extends StatelessWidget {
   const LoginOptionView({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class LoginOptionView extends StatelessWidget {
                       textStyle: const TextStyle(
                         fontSize: 27,
                         letterSpacing: 0.27,
-                        color: nearlyWhite,
+                        color: ConstAnts.nearlyWhite,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -69,7 +70,7 @@ class LoginOptionView extends StatelessWidget {
                       textStyle: TextStyle(
                         fontSize: 14,
                         letterSpacing: 0.2,
-                        color: nearlyWhite.withOpacity(.7),
+                        color: ConstAnts.nearlyWhite.withOpacity(.7),
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -79,30 +80,38 @@ class LoginOptionView extends StatelessWidget {
             ),
             Positioned(
               bottom: 11,
-              left: 19,
+              left: 35,
               child: Column(
                 children: [
                   Buton(
                     label: 'Sign In',
-                    heigHt: 55,
-                    widTh: sSize.width * .8,
-                    bColOr: kMedi,
-                    splColOr: nearlyWhite,
-                    hovColOr: medicalGreen,
+                    heigHt: 63,
+                    widTh: sSize.width * .877,
+                    bColOr: ConstAnts.medicalGreen,
+                    splColOr: ConstAnts.nearlyWhite,
+                    hovColOr: ConstAnts.medicalGreen,
                     screenSize: sSize,
-                    press: () => Get.toNamed('/signIn'),
-                  ),
-                  OutlinedButt(
-                    label: 'Sign Up',
-                    heigHt: 55,
-                    widTh: sSize.width * .8,
-                    bColOr: Colors.amber,
-                    screenSize: sSize,
-                    press: () => Get.toNamed('/signUp'),
+                    press: () => Get.toNamed(
+                      '/signIn',
+                      // ignore: todo
+                    ), //TODO: Route main sign-in button
                   ),
                   const SizedBox(
                     height: 21,
-                  )
+                  ),
+                  OutlinedButt(
+                    label: 'Sign Up',
+                    paddingH: sSize.width * .373,
+                    paddingV: 33,
+                    radius: 17,
+                    screenSize: sSize,
+                    press: () => Get.toNamed(
+                        // ignore: todo
+                        '/signUp'), //TODO: Route main sign-up button
+                  ),
+                  const SizedBox(
+                    height: 21,
+                  ),
                 ],
               ),
             ),

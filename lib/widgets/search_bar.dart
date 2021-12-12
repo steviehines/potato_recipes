@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:potato_foods/components/theme.dart';
+import 'package:potato_foods/components/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchBar extends StatelessWidget {
@@ -21,13 +21,13 @@ class SearchBar extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  color: dullGrey,
+                  color: ConstAnts.lightText,
                   borderRadius: const BorderRadius.all(
                     Radius.circular(9),
                   ),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      color: dullerGrey.withOpacity(.3),
+                      color: ConstAnts.lightText.withOpacity(.3),
                       offset: const Offset(-3, 1),
                       blurRadius: 7,
                     ),
@@ -39,12 +39,12 @@ class SearchBar extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: TextFormField(
-                          cursorColor: medicalGreen.withOpacity(.5),
+                          cursorColor: ConstAnts.medicalGreen.withOpacity(.5),
                           style: GoogleFonts.varelaRound(
                             textStyle: const TextStyle(
                               fontSize: 16,
                               letterSpacing: 0.27,
-                              color: darkText,
+                              color: ConstAnts.darkText,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -55,13 +55,13 @@ class SearchBar extends StatelessWidget {
                             helperStyle: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
-                              color: medicalGreen,
+                              color: ConstAnts.medicalGreen,
                             ),
                             labelStyle: GoogleFonts.varelaRound(
                               textStyle: const TextStyle(
                                 fontSize: 16,
                                 letterSpacing: 0.2,
-                                color: dullerGrey,
+                                color: ConstAnts.lightText,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -75,11 +75,13 @@ class SearchBar extends StatelessWidget {
                       height: 60,
                       child: GestureDetector(
                           onTap: () {
-                            Get.toNamed('/login');
+                            Get.toNamed(
+                                // ignore: todo
+                                '/loginOpt'); //TODO: Route search button
                           },
                           child: const Icon(
                             Icons.search,
-                            color: dullerGrey,
+                            color: ConstAnts.lightText,
                           )),
                     )
                   ],
